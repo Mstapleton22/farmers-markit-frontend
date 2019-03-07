@@ -19,9 +19,17 @@
 export default {};
 </script>
 <style scoped>
-.searchmode {
+img {
+  width: 300px;
 }
 button {
-  border: none;
+  width: 60%;
+  padding: 4%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  background-color: lightgray;
+}
+.searchmode {
+  background-color: #cc5501;
 }
 </style>

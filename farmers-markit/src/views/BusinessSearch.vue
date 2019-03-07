@@ -1,27 +1,35 @@
 <template>
   <div class="container">
     <img src="../assets/bee.png">
+    <br>
     <div class="search-wrapper">
       <input type="text" v-model="search" placeholder="Search title..">
       <label>Search title:</label>
     </div>
     <div class="search-result">
       <div class="line"></div>
-      <h1>cards populate</h1>
-      <div class="line1"></div>
+      <Card v-for="seller in Sellers" v-bind:key="seller.id" v-bind:business="seller"/>
+      <!-- <div class="line1">hey</div> -->
     </div>
   </div>
 </template>
 <script>
-export default {};
+import Card from "../components/Card.vue";
+export default {
+  components: {
+    Card
+  },
+  props: ["Sellers"]
+};
 </script>
 <style scoped>
 .container {
-  width: 940px;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background-color: rgba(142, 69, 133, 0.7);
+  color: white;
+}
+img {
+  width: 300px;
 }
 /* .line {
   width: 500px;

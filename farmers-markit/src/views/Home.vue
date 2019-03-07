@@ -1,8 +1,7 @@
 <template>
   <div class="home">
     <div class="hello">
-      <h1>Welcome to Farmers MarkIt</h1>
-      <p>This is your front end description</p>
+      <h1>Welcome to</h1>
     </div>
     <img alt="Farmers Markit logo" src="../assets/logoName.png">
     <br>
@@ -19,8 +18,17 @@ export default {
   components: {}
 };
 </script>
-<style>
+<style scoped>
 img {
   width: 300px;
 }
+button {
+  width: 60%;
+  padding: 4%;
+  margin-bottom: 10px;
+}
+.home {
+}
 </style>
+
+

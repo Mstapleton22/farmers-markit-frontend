@@ -8,8 +8,6 @@
       :Markets="Markets"
       :Sellers="Sellers"
       :StoresByIngredient="StoresByIngredient"
-      :StoresByMarket="StoresByMarket"
-      :StoresByName="StoresByName"
       v-on:findIngredient="getIngredientByChar($event)"
       v-on:buttonIngredient="getIngredientByChar($event)"
     />
@@ -23,9 +21,7 @@ export default {
       Ingredients: null,
       Markets: null,
       Sellers: null,
-      StoresByIngredient: null,
-      StoresByMarket: null,
-      StoresByName: null
+      StoresByIngredient: null
     };
   },
   methods: {
@@ -38,7 +34,13 @@ export default {
       fetch(`${url}/ingredients/${input}`)
         .then(resp => resp.json())
         .then(resp => {
-          return (this.StoresByIngredient = resp[0].stores);
+          let stores = [];
+          console.log(resp);
+          resp.forEach(ingredient => {
+            console.log(ingredient);
+            stores.push(ingredient);
+          });
+          return (this.StoresByIngredient = stores);
         });
     },
     getMarkets() {
@@ -47,7 +49,7 @@ export default {
         .then(resp => (this.Markets = resp));
     },
     getSellers() {
-      fetch(`${url}/sellers`)
+      fetch(`${url}/ingredients/k`)
         .then(resp => resp.json())
         .then(resp => (this.Sellers = resp));
     },
@@ -72,6 +74,7 @@ export default {
 }
 #nav {
   padding: 30px;
+  background-color: lightgrey;
 }
 
 #nav a {

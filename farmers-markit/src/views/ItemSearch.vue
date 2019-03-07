@@ -18,26 +18,39 @@
       >{{item.name}}</button>
     </div>
     <div class="search-result">
-      <Card
-        v-for="business in StoresByIngredient"
-        v-bind:key="business.id"
-        v-bind:business="business"
+      <IngredientCardContainer
+        v-for="ingredient in StoresByIngredient"
+        v-bind:key="ingredient.item_id"
+        v-bind:ingredient="ingredient"
       />
     </div>
     <img src="../assets/squirrel.png">
   </div>
 </template>
 <script>
-import Card from "../components/Card.vue";
+import IngredientCardContainer from "../components/IngredientCardContainer.vue";
+
 export default {
   props: ["StoresByIngredient", "Ingredients"],
   components: {
-    Card
+    IngredientCardContainer
   }
 };
 </script>
 <style >
+.container {
+  background-color: #228b22;
+}
 .search-result {
   border: 3px solid coral;
+}
+button {
+  width: 30%;
+  padding: 2%;
+  margin: 5px;
+  background-color: lightgray;
+}
+img {
+  width: 100px;
 }
 </style>
