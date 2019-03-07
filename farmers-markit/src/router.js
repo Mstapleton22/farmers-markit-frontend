@@ -14,29 +14,24 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('./views/About.vue')
+      path: '/searchmode',
+      name: 'search',
+      component: () => import('./views/SearchMode.vue')
     },
-    // {
-      // path: '/searchmode',
-      // name: 'search',
-      // component: () => import('./views/SearchMode.vue')
-    // },
-    // {
-      // path: '/itemsearch',
-      // name: 'itemsearch',
-      // component: () => import('./views/SearchMode.vue')
-    // },
-        // {
-      // path: '/businesssearch',
-      // name: 'businesssearch',
-      // component: () => import('./views/BusinessSearch.vue')
-    // },
-        // {
-      // path: '/locationsearch',
-      // name: 'locationsearch',
-      // component: () => import('./views/LocationSearch.vue')
-    // }
+    {
+      path: '/itemsearch',
+      name: 'itemsearch',
+      component: () => import('./views/ItemSearch.vue')
+    },
+    {
+      path: '/businesssearch',
+      name: 'businesssearch',
+      component: () => import('./views/BusinessSearch.vue')
+    },
+    {
+      path: '/locationsearch',
+      name: 'locationsearch',
+      component: () => import('./views/LocationSearch.vue')
+    }
   ]
 })
