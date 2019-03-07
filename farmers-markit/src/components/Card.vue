@@ -1,18 +1,21 @@
 <template>
   <div class="card">
     <div class="col1">
-      <p>Company Name:</p>
-      <p>Market Name:</p>
-      <p>Website</p>
+      <p>Company Name: {{business.name}}</p>
+      <p>Market Name: {{business.market_id}}</p>
+      <p>Website: {{business.url}}</p>
     </div>
     <div class="col2">
-      <p>stall #</p>
-      <button>Menu</button>
+      <p>stall #: {{business.stall_number}}</p>
+      <!-- <button>Menu: {{business.market_id}}</button> -->
+      <!-- </p> -->
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  props: ["business"]
+};
 </script>
 <style>
 .card {

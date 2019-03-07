@@ -23,7 +23,7 @@ export default {};
   flex-direction: column;
   justify-content: center;
 }
-.line {
+/* .line {
   width: 500px;
   margin-left: 20px;
   border-top: 5px solid blue;
@@ -31,5 +31,5 @@ export default {};
 .line1 {
   width: 550px;
   border-bottom: 10px solid red;
-}
+} */
 </style>

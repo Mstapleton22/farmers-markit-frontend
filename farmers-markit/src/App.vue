@@ -2,45 +2,61 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link>
-      <!-- <router-link to="/about">About</router-link> -->
     </div>
     <router-view
-      :getIngredients="getIngredients"
-      :getMarkets="getMarkets"
-      :getSellers="getSellers"
+      :Ingredients="Ingredients"
+      :Markets="Markets"
+      :Sellers="Sellers"
+      :StoresByIngredient="StoresByIngredient"
+      :StoresByMarket="StoresByMarket"
+      :StoresByName="StoresByName"
+      v-on:findIngredient="getIngredientByChar($event)"
+      v-on:buttonIngredient="getIngredientByChar($event)"
     />
   </div>
 </template>
 <script>
-let url = "";
+let url = "https://boiling-fortress-95925.herokuapp.com";
 export default {
   data() {
     return {
-      getIngredients: null,
-      getMarkets: null,
-      getSellers: null
+      Ingredients: null,
+      Markets: null,
+      Sellers: null,
+      StoresByIngredient: null,
+      StoresByMarket: null,
+      StoresByName: null
     };
   },
-
   methods: {
-    getIngedients() {
-      fetch(`${url}/`)
+    getIngredients() {
+      fetch(`${url}/ingredients`)
         .then(resp => resp.json())
-        .then(resp => (this.getIngredients = resp));
+        .then(resp => (this.Ingredients = resp));
+    },
+    getIngredientByChar(input) {
+      fetch(`${url}/ingredients/${input}`)
+        .then(resp => resp.json())
+        .then(resp => {
+          return (this.StoresByIngredient = resp[0].stores);
+        });
     },
     getMarkets() {
-      fetch(`${url}/`)
+      fetch(`${url}/markets`)
         .then(resp => resp.json())
-        .then(resp => (this.getMarkets = resp));
+        .then(resp => (this.Markets = resp));
     },
     getSellers() {
-      fetch(`${url}/`)
+      fetch(`${url}/sellers`)
         .then(resp => resp.json())
-        .then(resp => (this.getSellers = resp));
+        .then(resp => (this.Sellers = resp));
+    },
+    log(input) {
+      console.log(input);
     }
   },
   mounted() {
-    this.getItems(), this.getMarkets(), this.getSellers();
+    this.getIngredients(), this.getMarkets(), this.getSellers();
   }
 };
 </script>
