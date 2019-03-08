@@ -5,20 +5,32 @@
       <h4>Location: {{marketCard.city}}, {{marketCard.state}}</h4>
     </div>
     <div class="col2">
-      <button>
+      <button v-on:click="toggleDisplay">
         <i class="fas fa-map-marker-alt"></i>
       </button>
     </div>
+    <div class="dropDown" v-if="display">
+      <p>boo</p>
+    </div>
   </div>
 </template>
+  
 <script>
 export default {
-  data() {
+  data: function() {
     return {
       display: false
     };
   },
-  props: ["marketCard", "Markets"],
+  components: {
+    Card
+  },
+  props: ["marketCard", "Markets", "ingredient"],
+  methods: {
+    toggleDisplay() {
+      this.display = !this.display;
+    }
+  }
 };
 </script>
 <style scoped>

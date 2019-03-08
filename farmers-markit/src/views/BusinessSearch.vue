@@ -9,7 +9,6 @@
     <div class="search-result">
       <div class="line"></div>
       <Card v-for="seller in Sellers" v-bind:key="seller.id" v-bind:business="seller"/>
-      <!-- <div class="line1">hey</div> -->
     </div>
   </div>
 </template>
