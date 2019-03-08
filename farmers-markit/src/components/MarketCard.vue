@@ -10,12 +10,18 @@
       </button>
     </div>
     <div class="dropDown" v-if="display">
-      <p>boo</p>
+      <Card
+        v-for="business in marketCard.stores"
+        v-bind:key="business.id"
+        v-bind:business="business"
+      />
     </div>
   </div>
 </template>
   
 <script>
+import Card from "../components/Card.vue";
+
 export default {
   data: function() {
     return {
@@ -25,7 +31,7 @@ export default {
   components: {
     Card
   },
-  props: ["marketCard", "Markets", "ingredient"],
+  props: ["marketCard", "Markets"],
   methods: {
     toggleDisplay() {
       this.display = !this.display;
