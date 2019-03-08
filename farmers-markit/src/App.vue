@@ -10,6 +10,7 @@
       :StoresByIngredient="StoresByIngredient"
       v-on:findIngredient="getIngredientByChar($event)"
       v-on:buttonIngredient="getIngredientByChar($event)"
+      v-on:sellerSearch="getSellers($event)"
     />
   </div>
 </template>
@@ -48,8 +49,8 @@ export default {
         .then(resp => resp.json())
         .then(resp => (this.Markets = resp));
     },
-    getSellers() {
-      fetch(`${url}/ingredients/k`)
+    getSellers(input) {
+      fetch(`${url}/sellers/${input}`)
         .then(resp => resp.json())
         .then(resp => (this.Sellers = resp));
     },
@@ -58,7 +59,7 @@ export default {
     }
   },
   mounted() {
-    this.getIngredients(), this.getMarkets(), this.getSellers();
+    this.getIngredients(), this.getMarkets();
   }
 };
 </script>
@@ -203,7 +204,7 @@ table {
 }
 #nav {
   padding: 30px;
-  background-color: lightgrey;
+  background-color: inherit;
 }
 
 #nav a {

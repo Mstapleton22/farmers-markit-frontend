@@ -43,11 +43,11 @@ button {
   position: absolute;
   left: 10;
   top: 50;
-  background-color: teal;
-  margin-block-start: -0.67em;
+  background-color: #f1d6b8;
+  /* margin-block-start: -0.67em;
   margin-block-end: 0.67em;
   margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  margin-inline-end: 0px; */
 }
 </style>
 

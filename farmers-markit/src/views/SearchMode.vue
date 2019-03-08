@@ -30,6 +30,6 @@ button {
   background-color: lightgray;
 }
 .searchmode {
-  background-color: #cc5501;
+  background-color: #4f6d7a;
 }
 </style>

@@ -3,7 +3,12 @@
     <img src="../assets/bee.png">
     <br>
     <div class="search-wrapper">
-      <input type="text" v-model="search" placeholder="Search title..">
+      <input
+        type="text"
+        v-model="search"
+        v-on:input="$emit('sellerSearch', $event.target.value)"
+        placeholder="Search title.."
+      >
       <label>Search title:</label>
     </div>
     <div class="search-result">
@@ -14,6 +19,7 @@
 </template>
 <script>
 import Card from "../components/Card.vue";
+
 export default {
   components: {
     Card
@@ -25,9 +31,10 @@ export default {
 .container {
   margin: auto;
   background-color: rgba(142, 69, 133, 0.7);
-  color: white;
+  /* color: white; */
 }
 img {
+  display: none;
   width: 300px;
 }
 /* .line {
