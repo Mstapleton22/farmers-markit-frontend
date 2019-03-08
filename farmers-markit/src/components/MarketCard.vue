@@ -13,7 +13,12 @@
 </template>
 <script>
 export default {
-  props: ["marketCard", "Markets"]
+  data() {
+    return {
+      display: false
+    };
+  },
+  props: ["marketCard", "Markets"],
 };
 </script>
 <style scoped>
