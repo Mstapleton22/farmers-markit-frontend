@@ -5,20 +5,38 @@
       <h4>Location: {{marketCard.city}}, {{marketCard.state}}</h4>
     </div>
     <div class="col2">
-      <button>
+      <button v-on:click="toggleDisplay">
         <i class="fas fa-map-marker-alt"></i>
       </button>
     </div>
+    <div class="dropDown" v-if="display">
+      <Card
+        v-for="business in marketCard.stores"
+        v-bind:key="business.id"
+        v-bind:business="business"
+      />
+    </div>
   </div>
 </template>
+  
 <script>
+import Card from "../components/Card.vue";
+
 export default {
-  data() {
+  data: function() {
     return {
       display: false
     };
   },
+  components: {
+    Card
+  },
   props: ["marketCard", "Markets"],
+  methods: {
+    toggleDisplay() {
+      this.display = !this.display;
+    }
+  }
 };
 </script>
 <style scoped>
